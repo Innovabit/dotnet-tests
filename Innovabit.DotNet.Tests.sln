@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB205813-D913-49A7-8683-E350F1C8B33F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DI", "DI", "{FDD5AD97-68AC-4BB5-BE20-B2C286EB0BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innovabit.DotNet.Test.DependencyInjection", "src\DI\Innovabit.DotNet.Test.DependencyInjection\Innovabit.DotNet.Test.DependencyInjection.csproj", "{2A504B56-0BD9-4F09-AC93-4B1A3657D128}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A504B56-0BD9-4F09-AC93-4B1A3657D128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A504B56-0BD9-4F09-AC93-4B1A3657D128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A504B56-0BD9-4F09-AC93-4B1A3657D128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A504B56-0BD9-4F09-AC93-4B1A3657D128}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FDD5AD97-68AC-4BB5-BE20-B2C286EB0BA5} = {CB205813-D913-49A7-8683-E350F1C8B33F}
+		{2A504B56-0BD9-4F09-AC93-4B1A3657D128} = {FDD5AD97-68AC-4BB5-BE20-B2C286EB0BA5}
+	EndGlobalSection
+EndGlobal
