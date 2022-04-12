@@ -1,39 +1,41 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
-namespace Innovabit.DotNet.Test.DependencyInjection;
-internal class FakeServiceCollection
+namespace Innovabit.DotNet.Test.DependencyInjection
 {
-    private readonly IServiceCollection _serviceCollection;
-
-    public FakeServiceCollection()
+    public class FakeServiceCollection
     {
-        _serviceCollection = Mock.Of<IServiceCollection>();
-    }
+        private readonly IServiceCollection _serviceCollection;
 
-    public IServiceCollection Container => _serviceCollection;
+        public FakeServiceCollection()
+        {
+            _serviceCollection = Mock.Of<IServiceCollection>();
+        }
 
-    public void ContainsSingletonService<TService, TInstance>()
-    {
-        this.IsRegistered<TService, TInstance>(ServiceLifetime.Singleton);
-    }
+        public IServiceCollection Container => _serviceCollection;
 
-    public void ContainsTransientService<TService, TInstance>()
-    {
-        this.IsRegistered<TService, TInstance>(ServiceLifetime.Transient);
-    }
+        public void ContainsSingletonService<TService, TInstance>()
+        {
+            this.IsRegistered<TService, TInstance>(ServiceLifetime.Singleton);
+        }
 
-    public void ContainsScopedService<TService, TInstance>()
-    {
-        this.IsRegistered<TService, TInstance>(ServiceLifetime.Scoped);
-    }
+        public void ContainsTransientService<TService, TInstance>()
+        {
+            this.IsRegistered<TService, TInstance>(ServiceLifetime.Transient);
+        }
 
-    private void IsRegistered<TService, TInstance>(ServiceLifetime lifetime)
-    {
-        var serviceCollectionMock = Mock.Get(_serviceCollection);
+        public void ContainsScopedService<TService, TInstance>()
+        {
+            this.IsRegistered<TService, TInstance>(ServiceLifetime.Scoped);
+        }
 
-        serviceCollectionMock.Verify(serviceCollection => serviceCollection.Add(
-                It.Is<ServiceDescriptor>(serviceDescriptor => serviceDescriptor.ServiceType == typeof(TService) && serviceDescriptor.ImplementationType == typeof(TInstance) && serviceDescriptor.Lifetime == lifetime)));
+        private void IsRegistered<TService, TInstance>(ServiceLifetime lifetime)
+        {
+            var serviceCollectionMock = Mock.Get(_serviceCollection);
 
+            serviceCollectionMock.Verify(serviceCollection => serviceCollection.Add(
+                    It.Is<ServiceDescriptor>(serviceDescriptor => serviceDescriptor.ServiceType == typeof(TService) && serviceDescriptor.ImplementationType == typeof(TInstance) && serviceDescriptor.Lifetime == lifetime)));
+
+        }
     }
 }
